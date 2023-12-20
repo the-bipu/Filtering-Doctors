@@ -1,0 +1,101 @@
+.mainDiv {
+  width: 100%;
+  height: auto;
+
+  .searchBar {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .nameBar {
+      width: 350px;
+      height: auto;
+      padding: 0.5rem 1rem;
+      outline: none;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .ageBar,
+    .locBar {
+      width: 250px;
+      height: auto;
+      padding: 0.5rem 1rem;
+      outline: none;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+    }
+  }
+
+  .moreFilters {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .speciality,
+    .availability {
+      width: 250px;
+      height: auto;
+      padding: 0.5rem 1rem;
+      outline: none;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+    }
+  }
+
+  .header-main {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 2rem 0;
+  }
+
+  .total-cards {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+
+    .profile-card {
+      width: 350px;
+      height: auto;
+      padding: 1rem;
+      background-color: #fff;
+      color: #000;
+
+      display: flex;
+      flex-direction: column;
+      line-height: .5rem;
+    }
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    color: black;
+  }
+}
