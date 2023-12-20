@@ -3,6 +3,7 @@ import doctorsList from '../../assets/doctors_data.json'
 import { Link, useParams } from 'react-router-dom';
 
 import './Home.scss';
+import Navbar from '../../components/Navbar/Navbar';
 
 const Home = () => {
     // const [doctors, setDoctors] = useState([]);
@@ -110,63 +111,71 @@ const Home = () => {
     });
 
     return (
-        <div className='mainDiv'>
-            <div className='searchBar'>
-                <input className='nameBar' placeholder='Name' name='name' value={searchQuery.name} onChange={handleInputChange} />
-                <input className='locBar' placeholder='Location' name='location' value={searchQuery.location} onChange={handleInputChange} />
-                <input className='ageBar' placeholder='Age' name='age' value={searchQuery.age} onChange={handleInputChange} />
-            </div>
-            <div className="moreFilters">
-                <input className='speciality' placeholder='Specialty' name='specialty' value={searchQuery.specialty} onChange={handleInputChange} />
-                <input className='availability' placeholder='Available' name='availability' value={searchQuery.availability} onChange={handleInputChange} />
-            </div>
+        <>
+            <Navbar />
 
-            {searchResults.length === 0
-                ? ''
-                :
-                (
-                    <div className='total-cards'>
-                        {searchResults.map((result, index) => (
-                            <div key={index} className='profile-card'>
-                                <h3>Name: {result.Name}</h3>
-                                <p>Age: {result.Age}</p>
-                                <p>Specialty: {result.Specialty}</p>
-                                <p>Location: {result.Location}</p>
-                                <p>Availability: {result.Availability}</p>
-                                <hr />
+            <div className='mainDiv'>
+
+                <div className='searchBar'>
+                    <input className='nameBar' placeholder='Name' name='name' value={searchQuery.name} onChange={handleInputChange} />
+                    <input className='locBar' placeholder='Location' name='location' value={searchQuery.location} onChange={handleInputChange} />
+                    <input className='ageBar' placeholder='Age' name='age' value={searchQuery.age} onChange={handleInputChange} />
+                </div>
+                <div className="moreFilters">
+                    <input className='speciality' placeholder='Specialty' name='specialty' value={searchQuery.specialty} onChange={handleInputChange} />
+                    <input className='availability' placeholder='Available' name='availability' value={searchQuery.availability} onChange={handleInputChange} />
+                </div>
+
+                {searchResults.length === 0
+                    ? ''
+                    :
+                    (
+                        <div>
+                            <div className='header-main'>Search Results 🧑‍⚕️</div>
+                            <div className='total-cards'>
+                                {searchResults.map((result, index) => (
+                                    <div key={index} className='profile-card'>
+                                        <h3>Name: {result.Name}</h3>
+                                        <p>Age: {result.Age}</p>
+                                        <p>Specialty: {result.Specialty}</p>
+                                        <p>Location: {result.Location}</p>
+                                        <p>Availability: {result.Availability}</p>
+                                        <hr />
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
-                )
-            }
+                        </div>
+                    )
+                }
 
-            <div className='header-main'>List of Doctors 🧑‍⚕️</div>
-            <div className='total-cards'>
-                {doctors.map((doctor, index) => (
-                    <div key={index} className='profile-card'>
-                        <h3>Name: {doctor.Name}</h3>
-                        <p>Age: {doctor.Age}</p>
-                        <p>Specialty: {doctor.Specialty}</p>
-                        <p>Location: {doctor.Location}</p>
-                        <p>Availability: {doctor.Availability}</p>
-                        <hr />
-                    </div>
-                ))}
-            </div>
+                <div className='header-main'>List of Doctors 🧑‍⚕️</div>
+                <div className='total-cards'>
+                    {doctors.map((doctor, index) => (
+                        <div key={index} className='profile-card'>
+                            <h3>Name: {doctor.Name}</h3>
+                            <p>Age: {doctor.Age}</p>
+                            <p>Specialty: {doctor.Specialty}</p>
+                            <p>Location: {doctor.Location}</p>
+                            <p>Availability: {doctor.Availability}</p>
+                            <hr />
+                        </div>
+                    ))}
+                </div>
 
-            {/* Pagination */}
-            <div className="pagination">
-                {paginationLinks}
-            </div>
+                {/* Pagination */}
+                <div className="pagination">
+                    {paginationLinks}
+                </div>
 
-            {/* <div>
+                {/* <div>
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                     <button key={page} onClick={() => handlePageChange(page)}>
                         {page}
                     </button>
                 ))}
             </div> */}
-        </div>
+            </div>
+        </>
     )
 }
 
