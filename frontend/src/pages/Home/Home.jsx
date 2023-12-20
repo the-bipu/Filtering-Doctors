@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import doctorsList from './doctors_data.json'
+import doctorsList from '../../assets/doctors_data.json'
 import { Link, useParams } from 'react-router-dom';
 
 import './Home.scss';
@@ -68,7 +68,7 @@ const Home = () => {
         console.log('Doctors:', doctors);
     }, [doctors]);
 
-    // For Searching
+    // Search Logic
     const performSearch = () => {
         const filteredDoctors = doctorsList.filter(doctor => {
             const nameMatch = !searchQuery.name || doctor.Name.toLowerCase().includes(searchQuery.name.toLowerCase());
@@ -97,6 +97,7 @@ const Home = () => {
         performSearch();
     };
 
+    // Page changing Logic
     const totalPages = Math.ceil(doctorsList.length / doctorsPerPage);
 
     const paginationLinks = Array.from({ length: totalPages }, (_, index) => {
