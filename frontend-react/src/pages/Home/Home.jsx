@@ -148,18 +148,20 @@ const Home = () => {
                     )
                 }
 
-                <div className='header-main'>List of Doctors 🧑‍⚕️</div>
-                <div className='total-cards'>
-                    {doctors.map((doctor, index) => (
-                        <div key={index} className='profile-card'>
-                            <h3>Name: {doctor.Name}</h3>
-                            <p>Age: {doctor.Age}</p>
-                            <p>Specialty: {doctor.Specialty}</p>
-                            <p>Location: {doctor.Location}</p>
-                            <p>Availability: {doctor.Availability}</p>
-                            <hr />
-                        </div>
-                    ))}
+                <div>
+                    <div className='header-main'>List of Doctors 🧑‍⚕️</div>
+                    <div className='total-cards'>
+                        {doctors.map((doctor, index) => (
+                            <div key={index} className='profile-card'>
+                                <h3>Name: {doctor.Name}</h3>
+                                <p>Age: {doctor.Age}</p>
+                                <p>Specialty: {doctor.Specialty}</p>
+                                <p>Location: {doctor.Location}</p>
+                                <p>Availability: {doctor.Availability}</p>
+                                <hr />
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Pagination */}
